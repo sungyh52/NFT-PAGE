@@ -8,6 +8,18 @@ import {useEffect, useState} from "react";
 const Header = ({account, setAccount}) => {
   const [coinPrice, setCoinPrice] = useState();
 
+  const onClickAccount = async () => {
+    try {
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+
+      setAccount(accounts[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const getCoinPrice = async () => {
     try {
       const response = await axios.get(
@@ -19,18 +31,8 @@ const Header = ({account, setAccount}) => {
         {symbol: "ETH", price: response.data[1].trade_price},
         {symbol: "MATIC", price: response.data[2].trade_price},
       ]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
-  const onClickAccount = async () => {
-    try {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
-
-      setAccount(accounts[0]);
+      console.log(response);
     } catch (error) {
       console.error(error);
     }
@@ -45,7 +47,7 @@ const Header = ({account, setAccount}) => {
       <Link to="/">
         <div className="flex items-center text-main">
           <FaChessRook size={28} />
-          <div className="ml-1 text-xl">Ble-Chess</div>
+          <div className="ml-1 text-xl">Ble-Chess-3rd</div>
         </div>
       </Link>
       <div className="flex items-center">

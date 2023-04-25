@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "./pages/main";
 import Detail from "./pages/detail";
 import Header from "./components/Header";
@@ -12,7 +12,7 @@ function App() {
       <div className="min-h-screen bg-gray-950 text-white">
         <Header account={account} setAccount={setAccount} />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main account={account} />} />
           <Route path="/:tokenId" element={<Detail />} />
         </Routes>
       </div>
