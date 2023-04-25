@@ -1,7 +1,9 @@
+const ranNum = Math.floor(Math.random() * 1000) + 1;
+
 const Intro = () => {
   return (
     <div className="bg-gradient-to-b from-transparent to-red-400 pt-10">
-      Intro
+      <div className="max-w-screen-xl mx-auto">Intro</div>
     </div>
   );
 };
