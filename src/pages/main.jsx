@@ -65,9 +65,9 @@ const Main = ({account}) => {
   return (
     <>
       <Intro totalNft={totalNft} mintedNft={mintedNft} myNft={myNft} />
-      <Nfts page={page} />
+      <Nfts page={page} mintedNft={mintedNft} />
     </>
-  );
+  ); // 위에 mintedNft는 nft가 mintedNft라는 글씨
 };
 
 export default Main;
